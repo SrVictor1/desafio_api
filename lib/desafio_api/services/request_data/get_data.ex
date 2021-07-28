@@ -1,15 +1,13 @@
 defmodule DesafioApi.Services.RequestData.GetData do
   @moduledoc false
 
-  @url "http://challenge.dienekes.com.br/api/numbers?page="
-
   def get_data(number) when is_number(number) do
     http_get(number)
     |> jason_decode()
   end
 
   defp http_get(number) do
-    HTTPoison.get!(@url <> to_string(number))
+    HTTPoison.get!(System.get_env("URL_DESAFIO") <> to_string(number))
     |> handle_get()
   end
 

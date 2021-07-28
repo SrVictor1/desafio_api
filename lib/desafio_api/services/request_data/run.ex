@@ -2,7 +2,7 @@ defmodule DesafioApi.Services.RequestData.Run do
   @moduledoc false
   alias DesafioApi.Services.RequestData.{MySort, GetData}
 
-  def run(min \\ 1, max \\ 10000) do
+  def run(min, max) when not is_binary(min) do
     Enum.map(min..max, &(&1 + 1))
     |> Flow.from_enumerable()
     |> Flow.partition()
@@ -10,6 +10,14 @@ defmodule DesafioApi.Services.RequestData.Run do
     |> Enum.to_list()
     |> List.flatten()
     |> MySort.sort()
+  end
+
+  def run(min, max) do
+    min_check = String.to_integer(min)
+    max_check = String.to_integer(max)
+    if is_number(min_check) == true && is_number(max_check) do
+      run(min_check, max_check)
+    end
   end
 
   defp app(number) do

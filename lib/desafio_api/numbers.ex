@@ -4,13 +4,11 @@ defmodule DesafioApi.Numbers do
 
   schema "numbers" do
     field :numbers, {:array, :float}
- 
   end
 
-  def changeset(params)do
+  def changeset(params) do
     %__MODULE__{}
     |> cast(params, [:numbers])
     |> validate_required([:numbers])
   end
-  
 end
