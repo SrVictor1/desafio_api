@@ -44,7 +44,8 @@ defmodule DesafioApi.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:httpoison, "~> 1.8"},
       {:jason, "~> 1.2"},
-      {:flow, "~> 1.1.0"}
+      {:flow, "~> 1.1.0"},
+      {:cors_plug, "~> 2.0"}
     ]
   end
 

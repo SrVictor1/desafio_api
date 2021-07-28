@@ -11,7 +11,7 @@ defmodule DesafioApiWeb.Endpoint do
   ]
 
   socket "/socket", DesafioApiWeb.UserSocket,
-    websocket: true,
+    websocket: false,
     longpoll: false
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
@@ -45,6 +45,7 @@ defmodule DesafioApiWeb.Endpoint do
     pass: ["*/*"],
     json_decoder: Phoenix.json_library()
 
+  plug CORSPlug
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options

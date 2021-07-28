@@ -10,8 +10,8 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :desafio_api, DesafioApiWeb.Endpoint,
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  url: [host: "polar-river-41230.herokuapp.com", port: 443],
+  force_ssl: [rewrite_on: [: x_forwarded_proto]],
 
 # Do not print debug messages in production
 config :logger, level: :info
