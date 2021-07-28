@@ -5,8 +5,12 @@ defmodule DesafioApiWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", DesafioApiWeb do
+  scope "/api/v1", DesafioApiWeb do
     pipe_through :api
+
+    get "/data/:id", GetController, :get
+    get "/data", GetAllController, :all
+    post "/data", CreateController, :create_data
   end
 
   # Enables LiveDashboard only for development
