@@ -7,5 +7,6 @@ defmodule DesafioApi.Number.Post do
     |> Numbers.changeset()
     |> Repo.insert()
   end
+
   def call_run(one, two), do: Run.run(one, two) |> call()
 end
