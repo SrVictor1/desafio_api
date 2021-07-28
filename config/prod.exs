@@ -11,7 +11,7 @@ use Mix.Config
 # before starting your production server.
 config :desafio_api, DesafioApiWeb.Endpoint,
   url: [host: "polar-river-41230.herokuapp.com", port: 443],
-  force_ssl: [rewrite_on: [: x_forwarded_proto]],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
 
 # Do not print debug messages in production
 config :logger, level: :info
