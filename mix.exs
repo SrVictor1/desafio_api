@@ -45,7 +45,8 @@ defmodule DesafioApi.MixProject do
       {:httpoison, "~> 1.8"},
       {:jason, "~> 1.2"},
       {:flow, "~> 1.1.0"},
-      {:cors_plug, "~> 2.0"}
+      {:cors_plug, "~> 2.0"},
+      {:dotenv, "~> 3.1.0", only: [:dev, :test]}
     ]
   end
 
