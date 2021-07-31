@@ -7,7 +7,7 @@ defmodule DesafioApi.Services.RequestData.GetData do
   end
 
   defp http_get(number) do
-    HTTPoison.get!(System.get_env("URL_DESAFIO") <> to_string(number))
+    HTTPoison.get!(System.get_env("URL_DESAFIO") <> "#{number}")
     |> handle_get()
   end
 

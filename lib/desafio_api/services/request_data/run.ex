@@ -3,8 +3,9 @@ defmodule DesafioApi.Services.RequestData.Run do
   alias DesafioApi.Services.RequestData.{MySort, GetData}
 
   def run(min, max) when not is_binary(min) do
+    concurrency = String.to_integer(System.get_env("CONCURRENCY_VALUE"))
     Enum.map(min..max, &(&1 + 1))
-    |> Task.async_stream(&app/1, max_concurency: 250)
+    |> Task.async_stream(&app/1, max_concurency: concurrency)
     |> Enum.map(fn {:ok, value} -> value end)
     |> Enum.to_list()
     |> List.flatten()
