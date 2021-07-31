@@ -10,11 +10,11 @@
 
 - HTTPoison
 - Jason
-- flow
+- dotenv
 
 #### **Como foi usado?**
 
-> httpoison para a extração dos dados da api externa, jason para o tratamento dos dados e flow para melhorar a performace dos request
+> httpoison para a extração dos dados da api externa, jason para o tratamento dos dados e Task para melhorar a performace dos request
 
 ## Heroku Deploy:
 
@@ -42,7 +42,9 @@ Você deve ter o Elixir, Erlang, Phoenix e PostgreSQL instalado em sua maquina!
   mix deps.get && mix ecto.reset && mix phx.server
 ```
 
-_Se no terminal aparece, parabéns tudo foi instalado com sucesso!_
-
 > [info] Running DesafioApiWeb.Endpoint with cowboy 2.9.0 at 0.0.0.0:4000
 > [info] Access DesafioApiWeb.Endpoint at http://localhost:4000
+
+_Se no terminal aparece, parabéns tudo foi instalado com sucesso!_
+
+Para funcionamento correto da aplicação entre no arquivo `exemplo.env`, e crie um `.env` com aqueles valores
