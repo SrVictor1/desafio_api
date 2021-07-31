@@ -4,9 +4,8 @@ defmodule DesafioApi.Services.RequestData.Run do
 
   def run(min, max) when not is_binary(min) do
     Enum.map(min..max, &(&1 + 1))
-    |> Flow.from_enumerable()
-    |> Flow.partition()
-    |> Flow.flat_map(fn number -> app(number) end)
+    |> Task.async_stream(&app/1, max_concurency: 250)
+    |> Enum.map(fn {:ok, value} -> value end)
     |> Enum.to_list()
     |> List.flatten()
     |> MySort.sort()
